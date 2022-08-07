@@ -17,11 +17,10 @@
 // spdlog causes a bunch of compiler warnings we can't do anything about except
 // temporarily disabling them
 ASAP_DIAGNOSTIC_PUSH
-#if defined(ASAP_GNUC_VERSION)
-HEDLEY_PRAGMA(GCC diagnostic ignored "-Wswitch-default")
-HEDLEY_PRAGMA(GCC diagnostic ignored "-Wstrict-overflow")
-#elif defined(__clang__)
-ASAP_PRAGMA(GCC diagnostic ignored "-Weverything")
+#if defined(ASAP_CLANG_VERSION)
+ASAP_PRAGMA(clang diagnostic ignored "-Wundefined-func-template")
+ASAP_PRAGMA(clang diagnostic ignored "-Weverything")
+ASAP_PRAGMA(clang diagnostic ignored "-Wfloat-equal")
 #endif
 #include <spdlog/sinks/base_sink.h>
 #include <spdlog/spdlog.h>

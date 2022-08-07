@@ -75,7 +75,7 @@ auto Registry::GetLogger(std::string const &name) -> spdlog::logger & {
 // with clang (rightfully) complaining that the template definitions are not
 // available when the template needs to be instantiated here.
 ASAP_DIAGNOSTIC_PUSH
-#if ASAP_CLANG_VERSION
+#if defined(ASAP_CLANG_VERSION)
 ASAP_PRAGMA(GCC diagnostic ignored "-Wundefined-func-template")
 #endif
 DelegatingSink::DelegatingSink(spdlog::sink_ptr delegate)

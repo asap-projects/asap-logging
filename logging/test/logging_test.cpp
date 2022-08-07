@@ -8,15 +8,6 @@
 
 #include <gsl/gsl>
 
-// Disable compiler and linter warnings originating from 'fmt' and for which we
-// cannot do anything.
-ASAP_DIAGNOSTIC_PUSH
-#if defined(__clang__)
-#pragma clang diagnostic ignored "-Wsigned-enum-bitfield"
-#endif
-#include <fmt/core.h>
-ASAP_DIAGNOSTIC_POP
-
 #include <gmock/gmock-more-matchers.h>
 #include <gtest/gtest.h>
 
@@ -24,7 +15,7 @@ ASAP_DIAGNOSTIC_POP
 // and for which we cannot do anything. Additionally, every TEST or TEST_X macro
 // usage must be preceded by a '// NOLINTNEXTLINE'.
 ASAP_DIAGNOSTIC_PUSH
-#if defined(__clang__) && ASAP_HAS_WARNING("-Wused-but-marked-unused")
+#if defined(ASAP_CLANG_VERSION)
 #pragma clang diagnostic ignored "-Wused-but-marked-unused"
 #pragma clang diagnostic ignored "-Wglobal-constructors"
 #pragma clang diagnostic ignored "-Wunused-member-function"
@@ -38,12 +29,17 @@ using ::testing::IsTrue;
 using ::testing::Ne;
 
 #include <logging/logging.h>
-#include <spdlog/sinks/base_sink.h>
-#include <spdlog/spdlog.h>
 
 #include <iostream>
 #include <mutex>
 #include <sstream>
+
+// spdlog causes a bunch of compiler warnings we can't do anything about except
+// temporarily disabling them
+ASAP_DIAGNOSTIC_PUSH
+#if defined(ASAP_CLANG_VERSION)
+ASAP_PRAGMA(clang diagnostic ignored "-Wundefined-func-template")
+#endif
 
 template <typename Mutex>
 class TestSink : public spdlog::sinks::base_sink<Mutex> {
@@ -251,3 +247,5 @@ TEST(Logging, LogPushSink) {
 }
 
 } // namespace asap::logging
+
+ASAP_DIAGNOSTIC_POP
