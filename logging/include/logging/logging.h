@@ -21,7 +21,7 @@ ASAP_PRAGMA(clang diagnostic ignored "-Wundefined-func-template")
 ASAP_PRAGMA(clang diagnostic ignored "-Weverything")
 ASAP_PRAGMA(clang diagnostic ignored "-Wfloat-equal")
 #endif
-#if defined(ASAP_GCC_VERSION)
+#if defined(ASAP_GNUC_VERSION)
 ASAP_PRAGMA(GCC diagnostic ignored "-Wswitch-default")
 ASAP_PRAGMA(GCC diagnostic ignored "-Wswitch-enum")
 #endif
