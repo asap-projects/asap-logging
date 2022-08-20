@@ -7,7 +7,7 @@
 #pragma once
 
 #include <common/compilers.h>
-#include <logging/asap_logging_api.h>
+#include <logging/asap_logging_export.h>
 
 #include <stack>         // for stacking sinks
 #include <string>        // for std::string
@@ -21,6 +21,10 @@ ASAP_DIAGNOSTIC_PUSH
 ASAP_PRAGMA(clang diagnostic ignored "-Wundefined-func-template")
 ASAP_PRAGMA(clang diagnostic ignored "-Weverything")
 ASAP_PRAGMA(clang diagnostic ignored "-Wfloat-equal")
+#endif
+#if defined(ASAP_GCC_VERSION)
+ASAP_PRAGMA(GCC diagnostic ignored "-Wswitch-default")
+ASAP_PRAGMA(GCC diagnostic ignored "-Wswitch-enum")
 #endif
 #include <spdlog/sinks/base_sink.h>
 #include <spdlog/spdlog.h>
@@ -74,14 +78,14 @@ public:
   }
 
   /// Default trivial destructor
-  virtual ~Logger() final;
+  ~Logger();
 
   /*!
    * @brief Implementation of the swap operation.
    *
    * @param other Logger object to swap with.
    */
-  void swap(Logger &other) {
+  void swap(Logger &other) noexcept {
     std::swap(logger_, other.logger_);
   }
 
@@ -134,7 +138,7 @@ private:
    *
    * @see Registry::GetLogger(std::string)
    */
-  Logger(std::string name, spdlog::sink_ptr sink);
+  Logger(const std::string &name, const spdlog::sink_ptr &sink);
 
   /// The underlying spdlog::logger instance.
   std::shared_ptr<spdlog::logger> logger_;
@@ -178,7 +182,7 @@ public:
    */
   explicit DelegatingSink(spdlog::sink_ptr delegate);
 
-  // Non-copiable
+  // Non-copyable
   DelegatingSink(const DelegatingSink &) = delete;
   // Non-assignable
   auto operator=(const DelegatingSink &) -> DelegatingSink & = delete;
@@ -366,7 +370,7 @@ private:
  * @brief Mixin class that allows any class to perform logging with a logger of
  * a particular name.
  */
-template <typename T> class ASAP_LOGGING_TEMPLATE_API Loggable {
+template <typename T> class Loggable {
 protected:
   /*!
    * @brief Do not use this directly, use macros defined below.

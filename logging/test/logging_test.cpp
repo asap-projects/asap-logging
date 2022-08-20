@@ -4,35 +4,20 @@
 // SPDX-License-Identifier: BSD-3-Clause
 //===----------------------------------------------------------------------===//
 
-#include <common/compilers.h>
+#include <mutex>
+#include <sstream>
+
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
 
 #include <gsl/gsl>
 
-#include <gmock/gmock-more-matchers.h>
-#include <gtest/gtest.h>
-
-// Disable compiler and linter warnings originating from the unit test framework
-// and for which we cannot do anything. Additionally, every TEST or TEST_X macro
-// usage must be preceded by a '// NOLINTNEXTLINE'.
-ASAP_DIAGNOSTIC_PUSH
-#if defined(ASAP_CLANG_VERSION)
-#pragma clang diagnostic ignored "-Wused-but-marked-unused"
-#pragma clang diagnostic ignored "-Wglobal-constructors"
-#pragma clang diagnostic ignored "-Wunused-member-function"
-#endif
-// NOLINTBEGIN(used-but-marked-unused)
+#include <logging/logging.h>
 
 using ::testing::Eq;
 using ::testing::HasSubstr;
 using ::testing::IsFalse;
-using ::testing::IsTrue;
 using ::testing::Ne;
-
-#include <logging/logging.h>
-
-#include <iostream>
-#include <mutex>
-#include <sstream>
 
 // spdlog causes a bunch of compiler warnings we can't do anything about except
 // temporarily disabling them
@@ -82,12 +67,12 @@ const char *const Foo::LOGGER_NAME = "foo";
 
 // NOLINTNEXTLINE
 TEST(Logging, Loggable) {
-  auto *test_sink = gsl::owner<TestSink_mt *>(new TestSink_mt());
-  auto test_sink_ptr = std::shared_ptr<spdlog::sinks::sink>(test_sink);
+  auto *test_sink = static_cast<gsl::owner<TestSink_mt *>>(new TestSink_mt());
+  const auto test_sink_ptr = std::shared_ptr<spdlog::sinks::sink>(test_sink);
 
   Registry::PushSink(test_sink_ptr);
 
-  Foo foo;
+  [[maybe_unused]] Foo foo;
   EXPECT_THAT(test_sink->called_, Eq(1));
   auto msg = test_sink->out_.str();
   EXPECT_THAT(msg.empty(), IsFalse());
@@ -98,9 +83,9 @@ TEST(Logging, Loggable) {
 
 // NOLINTNEXTLINE
 TEST(Logging, MultipleThreads) {
-  auto *test_sink = gsl::owner<TestSink_mt *>(new TestSink_mt());
+  auto *test_sink = static_cast<gsl::owner<TestSink_mt *>>(new TestSink_mt());
   spdlog::set_pattern("%v");
-  auto test_sink_ptr = std::shared_ptr<spdlog::sinks::sink>(test_sink);
+  const auto test_sink_ptr = std::shared_ptr<spdlog::sinks::sink>(test_sink);
   Registry::PushSink(test_sink_ptr);
 
   constexpr auto c_num_iterations = 5;
@@ -146,8 +131,8 @@ TEST(Logging, MultipleThreads) {
 
 // NOLINTNEXTLINE
 TEST(Logging, LogWithPrefix) {
-  auto *test_sink = gsl::owner<TestSink_mt *>(new TestSink_mt());
-  auto test_sink_ptr = std::shared_ptr<spdlog::sinks::sink>(test_sink);
+  auto *test_sink = static_cast<gsl::owner<TestSink_mt *>>(new TestSink_mt());
+  const auto test_sink_ptr = std::shared_ptr<spdlog::sinks::sink>(test_sink);
   Registry::PushSink(test_sink_ptr);
 
   auto &test_logger = Registry::GetLogger("testing");
@@ -204,10 +189,10 @@ public:
 
 // NOLINTNEXTLINE
 TEST(Logging, LogPushSink) {
-  auto *first_mock = gsl::owner<MockSink *>(new MockSink());
-  auto *second_mock = gsl::owner<MockSink *>(new MockSink());
-  auto first_sink_ptr = std::shared_ptr<spdlog::sinks::sink>(first_mock);
-  auto second_sink_ptr = std::shared_ptr<spdlog::sinks::sink>(second_mock);
+  auto *first_mock = static_cast<gsl::owner<MockSink *>>(new MockSink());
+  auto *second_mock = static_cast<gsl::owner<MockSink *>>(new MockSink());
+  const auto first_sink_ptr = std::shared_ptr<spdlog::sinks::sink>(first_mock);
+  const auto second_sink_ptr = std::shared_ptr<spdlog::sinks::sink>(second_mock);
 
   auto &test_logger = Registry::GetLogger("testing");
   Registry::PushSink(first_sink_ptr);
@@ -235,8 +220,8 @@ TEST(Logging, LogPushSink) {
 
   Registry::PopSink();
   // mute the logger output
-  auto *test_sink = gsl::owner<TestSink_mt *>(new TestSink_mt());
-  auto test_sink_ptr = std::shared_ptr<spdlog::sinks::sink>(test_sink);
+  auto *test_sink = static_cast<gsl::owner<TestSink_mt *>>(new TestSink_mt());
+  const auto test_sink_ptr = std::shared_ptr<spdlog::sinks::sink>(test_sink);
   Registry::PushSink(test_sink_ptr);
   ASLOG_TO_LOGGER(test_logger, debug, "message");
 
@@ -247,5 +232,3 @@ TEST(Logging, LogPushSink) {
 }
 
 } // namespace asap::logging
-
-ASAP_DIAGNOSTIC_POP

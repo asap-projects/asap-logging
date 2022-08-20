@@ -43,7 +43,7 @@ std::recursive_mutex Registry::loggers_mutex_; // NOLINT
 // Logger
 // ---------------------------------------------------------------------------
 
-Logger::Logger(std::string name, spdlog::sink_ptr sink) {
+Logger::Logger(const std::string &name, const spdlog::sink_ptr &sink) {
   logger_ = std::make_shared<spdlog::logger>(name, sink);
   logger_->set_pattern(DEFAULT_LOG_FORMAT);
   logger_->set_level(spdlog::level::trace);
@@ -58,7 +58,8 @@ auto Registry::GetLogger(std::string const &name) -> spdlog::logger & {
   auto &loggers = Loggers();
   auto search = loggers.find(name);
   if (search == loggers.end()) {
-    auto new_logger = loggers.emplace(name, Logger(name, delegating_sink()));
+    const auto new_logger =
+        loggers.emplace(name, Logger(name, delegating_sink()));
     search = new_logger.first;
   }
   return *(search->second.logger_);
@@ -100,7 +101,7 @@ void Registry::PopSink() {
   std::lock_guard<std::mutex> lock(sinks_mutex_);
   auto &sinks = sinks_();
   if (!sinks.empty()) {
-    auto &sink = sinks.top();
+    const auto &sink = sinks.top();
     // Assign this previous sink to the delegating sink
     delegating_sink()->SwapSink(sink);
     sinks.pop();
@@ -123,7 +124,7 @@ void Registry::SetLogLevel(spdlog::level::level_enum log_level) {
 
 void Registry::SetLogFormat(const std::string &log_format) {
   std::lock_guard<std::recursive_mutex> lock(loggers_mutex_);
-  auto &loggers = Loggers();
+  const auto &loggers = Loggers();
   for (auto &log : loggers) {
     // Not thread safe
     std::lock_guard<std::mutex> log_lock(*log.second.logger_mutex_);
@@ -171,7 +172,7 @@ auto Registry::delegating_sink_() -> DelegatingSink * {
 // ---------------------------------------------------------------------------
 #ifndef NDEBUG
 /*!
- * @brief Make a string with the soruce code file name and line number at which
+ * @brief Make a string with the source code file name and line number at which
  * the log message was produced.
  * @param file source code file name.
  * @param line source code line number.
@@ -182,8 +183,8 @@ auto FormatFileAndLine(char const *file, char const *line) -> std::string {
   constexpr static int FILE_MAX_LENGTH = 70;
   std::ostringstream ostr;
   std::string fstr(file);
-  constexpr auto shortened_prefix_length = 10;
   if (fstr.length() > FILE_MAX_LENGTH) {
+    constexpr auto shortened_prefix_length = 10;
     fstr = fstr.substr(0, shortened_prefix_length - 3)
                .append("...")
                .append(fstr.substr(
