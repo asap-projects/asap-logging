@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 //===----------------------------------------------------------------------===//
 
-#include <logging/logging.h>
+#include "logging/logging.h"
 
 #include <iomanip> // std::setw
 #include <sstream> // std::ostringstream
@@ -125,7 +125,7 @@ void Registry::SetLogLevel(spdlog::level::level_enum log_level) {
 void Registry::SetLogFormat(const std::string &log_format) {
   std::lock_guard<std::recursive_mutex> lock(loggers_mutex_);
   const auto &loggers = Loggers();
-  for (auto &log : loggers) {
+  for (const auto &log : loggers) {
     // Not thread safe
     std::lock_guard<std::mutex> log_lock(*log.second.logger_mutex_);
     log.second.logger_->set_pattern(log_format);

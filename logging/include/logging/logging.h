@@ -6,13 +6,12 @@
 
 #pragma once
 
-#include <common/compilers.h>
-#include <logging/asap_logging_export.h>
-
 #include <stack>         // for stacking sinks
 #include <string>        // for std::string
 #include <thread>        // for std::mutex
 #include <unordered_map> // for the collection of loggers
+
+#include <common/compilers.h>
 
 // spdlog causes a bunch of compiler warnings we can't do anything about except
 // temporarily disabling them
@@ -29,6 +28,8 @@ ASAP_PRAGMA(GCC diagnostic ignored "-Wswitch-enum")
 #include <spdlog/sinks/base_sink.h>
 #include <spdlog/spdlog.h>
 ASAP_DIAGNOSTIC_POP
+
+#include <logging/asap_logging_export.h>
 
 /// Top level namespace.
 namespace asap::logging {

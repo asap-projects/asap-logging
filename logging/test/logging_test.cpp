@@ -4,6 +4,8 @@
 // SPDX-License-Identifier: BSD-3-Clause
 //===----------------------------------------------------------------------===//
 
+#include "logging/logging.h"
+
 #include <mutex>
 #include <sstream>
 
@@ -12,19 +14,10 @@
 
 #include <gsl/gsl>
 
-#include <logging/logging.h>
-
 using ::testing::Eq;
 using ::testing::HasSubstr;
 using ::testing::IsFalse;
 using ::testing::Ne;
-
-// spdlog causes a bunch of compiler warnings we can't do anything about except
-// temporarily disabling them
-ASAP_DIAGNOSTIC_PUSH
-#if defined(ASAP_CLANG_VERSION)
-ASAP_PRAGMA(clang diagnostic ignored "-Wundefined-func-template")
-#endif
 
 template <typename Mutex>
 class TestSink : public spdlog::sinks::base_sink<Mutex> {
@@ -192,7 +185,8 @@ TEST(Logging, LogPushSink) {
   auto *first_mock = static_cast<gsl::owner<MockSink *>>(new MockSink());
   auto *second_mock = static_cast<gsl::owner<MockSink *>>(new MockSink());
   const auto first_sink_ptr = std::shared_ptr<spdlog::sinks::sink>(first_mock);
-  const auto second_sink_ptr = std::shared_ptr<spdlog::sinks::sink>(second_mock);
+  const auto second_sink_ptr =
+      std::shared_ptr<spdlog::sinks::sink>(second_mock);
 
   auto &test_logger = Registry::GetLogger("testing");
   Registry::PushSink(first_sink_ptr);
