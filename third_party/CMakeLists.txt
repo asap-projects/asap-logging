@@ -19,20 +19,14 @@ cpmaddpackage(
   asap-projects/asap-common
   OPTIONS
   "ASAP_COMMON_INSTALL ON"
-)
+  "ASAP_BUILD_TESTS OFF"
+  "ASAP_BUILD_EXAMPLES OFF")
 
 # ------------------------------------------------------------------------------
 # GSL
 # ------------------------------------------------------------------------------
 
-cpmaddpackage(
-  NAME
-  gsl
-  GIT_TAG
-  main
-  GITHUB_REPOSITORY
-  microsoft/GSL
-)
+cpmaddpackage(NAME gsl GIT_TAG main GITHUB_REPOSITORY microsoft/GSL)
 
 # ------------------------------------------------------------------------------
 # fmtlib
@@ -62,5 +56,4 @@ cpmaddpackage(
   OPTIONS
   "SPDLOG_BUILD_SHARED ON"
   "SPDLOG_INSTALL ON"
-  "SPDLOG_FMT_EXTERNAL ON"
-  )
+  "SPDLOG_FMT_EXTERNAL ON")
