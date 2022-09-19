@@ -35,9 +35,7 @@ asap_declare_module(
 # Main module target
 # ------------------------------------------------------------------------------
 
-# Hardcode `asap` in the module name as we do not want this prefix to change
-# with the forked project name.
-set(MODULE_TARGET_NAME "asap_${META_MODULE_NAME}")
+set(MODULE_TARGET_NAME "asap_logging")
 
 asap_add_library(
   ${MODULE_TARGET_NAME}
