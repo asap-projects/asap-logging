@@ -4,13 +4,31 @@
 # SPDX-License-Identifier: BSD-3-Clause
 # ===-----------------------------------------------------------------------===#
 
-message("=> [third-party modules]")
+message(STATUS "${ASAP_LOG_PROJECT_HIERARCHY} >> third-party modules")
+
+# Call `asap_add_package` to add third party packages using CPM, while
+# automatically adding/removing them to the project hierarchy stack.
+#
+# Refer to https://github.com/cpm-cmake/CPM.cmake for the full usage.
+#
+# Example:
+# ~~~
+# asap_add_package(
+#   NAME
+#   magic_enum
+#   GIT_TAG
+#   master
+#   GITHUB_REPOSITORY
+#   abdes/magic_enum
+#   OPTIONS
+#   "MAGIC_ENUM_OPT_INSTALL ON")
+# ~~~
 
 # ------------------------------------------------------------------------------
 # asap::common
 # ------------------------------------------------------------------------------
 
-cpmaddpackage(
+asap_add_package(
   NAME
   asap_common
   GIT_TAG
@@ -26,13 +44,13 @@ cpmaddpackage(
 # GSL
 # ------------------------------------------------------------------------------
 
-cpmaddpackage(NAME gsl GIT_TAG main GITHUB_REPOSITORY microsoft/GSL)
+asap_add_package(NAME gsl GIT_TAG main GITHUB_REPOSITORY microsoft/GSL)
 
 # ------------------------------------------------------------------------------
 # fmtlib
 # ------------------------------------------------------------------------------
 
-cpmaddpackage(
+asap_add_package(
   NAME
   fmtlib
   GIT_TAG
@@ -46,7 +64,7 @@ cpmaddpackage(
 # spdlog
 # ------------------------------------------------------------------------------
 
-cpmaddpackage(
+asap_add_package(
   NAME
   spdlog
   GIT_TAG
@@ -57,3 +75,4 @@ cpmaddpackage(
   "SPDLOG_BUILD_SHARED ON"
   "SPDLOG_INSTALL ON"
   "SPDLOG_FMT_EXTERNAL ON")
+message(STATUS "${ASAP_LOG_PROJECT_HIERARCHY} >> third-party modules")

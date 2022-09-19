@@ -4,13 +4,16 @@
 # SPDX-License-Identifier: BSD-3-Clause
 # ===-----------------------------------------------------------------------===#
 
+set(my_name "logging")
+asap_push_module("${my_name}")
+
 # ------------------------------------------------------------------------------
 # Meta information about the this module
 # ------------------------------------------------------------------------------
 
 asap_declare_module(
   MODULE_NAME
-  "logging"
+  "${my_name}"
   DESCRIPTION
   "Logging API for asap projects"
   GITHUB_REPO
@@ -80,9 +83,7 @@ endif()
 # Examples
 # ------------------------------------------------------------------------------
 
-# if(ASAP_BUILD_EXAMPLES)
-#   add_subdirectory(examples)
-# endif()
+# if(ASAP_BUILD_EXAMPLES) add_subdirectory(examples) endif()
 
 # ------------------------------------------------------------------------------
 # API Documentation
@@ -155,3 +156,5 @@ if(${META_PROJECT_ID}_INSTALL)
       COMPONENT ${MODULE_TARGET_NAME}_docs)
   endif()
 endif()
+
+asap_pop_module("${my_name}")
