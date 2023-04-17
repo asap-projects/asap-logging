@@ -1,6 +1,14 @@
-###########################
-ASAP common's documentation
-###########################
+.. Structure conventions
+     # with overline, for parts
+     * with overline, for chapters
+     = for sections
+     - for subsections
+     ^ for sub-subsections
+     " for paragraphs
+
+###############
+Module: logging
+###############
 
 .. toctree::
    :maxdepth: 2
@@ -8,12 +16,9 @@ ASAP common's documentation
 
    Usage <usage>
    API <api>
-   License <license>
-   Version <version>
 
-Welcome! This is the documentation for the *logging* module, part of the *asap*
-project. This is a small module that encapsulates and lightly augments the
-logging functionality provided by a third party logging framework:
+This is a small module that encapsulates and lightly augments the logging
+functionality provided by a third party logging framework:
 [spdlog](https://github.com/gabime/spdlog).
 
 Parts of the documentation
@@ -25,6 +30,6 @@ Parts of the documentation
 project*
 
 :doc:`API reference <api>`
-------------------------------
+--------------------------
 *check this out to see the documentation of classes, macros, etc. offered by
 this module*

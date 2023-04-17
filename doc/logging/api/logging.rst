@@ -1,5 +1,14 @@
+.. Structure conventions
+     # with overline, for parts
+     * with overline, for chapters
+     = for sections
+     - for subsections
+     ^ for sub-subsections
+     " for paragraphs
+
+*******
 Logging
-=======
+*******
 
 Logging features provided by the ``asap`` ``common`` module are abstracted into
 a simple and minimalistic interface. Under the hood, the logging framework used
@@ -7,7 +16,7 @@ for the implementation is the excellent `spdlog <https://github.com/gabime/spdlo
 selected for its performance, light weight and clean interface.
 
 Design Rationale
-----------------
+================
 
 While spdlog or other frameworks offer a nice interface and can achieve the
 expected results with no abstraction layer above, they are designed as a
@@ -36,7 +45,7 @@ current design of the logging interface.
   :class:`asap::logging::DelegatingSink` class.
 
 Classes
--------
+=======
 
 * :class:`asap::logging::Logger`
 * :class:`asap::logging::Registry`
@@ -57,7 +66,7 @@ Classes
 
 
 Helper macros
--------------
+=============
 
 A set of convenience macros are provided and in 99% of the cases, these macros
 will fulfill the logging requirements.
