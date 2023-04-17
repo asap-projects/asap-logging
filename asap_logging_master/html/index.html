@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>ASAP Finite State Machines documentation! &#8212; Project: logging</title>
+    <title>ASAP Logging documentation! &#8212; Project: logging</title>
   
   
   
@@ -47,7 +47,7 @@
     <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Project Tools" href="tools/index.html" />
+    <link rel="next" title="Module: logging" href="logging/index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -131,7 +131,15 @@
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="tools/index.html">Project Tools</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="logging/index.html">Module: logging</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="logging/usage.html">Usage</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="logging/api.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="logging/api/logging.html">Logging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tools/index.html">Project Tools</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
@@ -320,7 +328,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>ASAP Finite State Machines documentation!</h1>
+    <h1>ASAP Logging documentation!</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -331,7 +339,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parts-of-the-documentation">Parts of the documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logging"><span class="xref std std-doc">logging</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-logging"><span class="xref std std-doc">Module: logging</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Developer Guides</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-tools"><span class="xref std std-doc">Project Tools</span></a></li>
 </ul>
@@ -348,31 +356,26 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="asap-finite-state-machines-documentation">
-<h1>ASAP Finite State Machines documentation!<a class="headerlink" href="#asap-finite-state-machines-documentation" title="Permalink to this heading">#</a></h1>
-<p>Last Updated on 2023-04-09</p>
+  <section id="asap-logging-documentation">
+<h1>ASAP Logging documentation!<a class="headerlink" href="#asap-logging-documentation" title="Permalink to this heading">#</a></h1>
+<p>Last Updated on 2023-04-17</p>
 <div class="toctree-wrapper compound">
 </div>
 <p>Welcome! This is the documentation for the
 <a class="reference external" href="https://github.com/asap-projects/asap-logging">asap-logging</a> 1.0.2 project.</p>
-<p>This is a build container for the <a class="reference external" href="https://asap-projects.github.io/asap-logging/asap_logging/html/index.html" title="(in asap/logging v1.0.0)"><span class="xref std std-doc">logging</span></a> module. It uses
-the <a class="reference external" href="https://github.com/abdes/asap">asap</a> integrated build system and follows
-its development workflow.</p>
+<p>This project uses the <a class="reference external" href="https://github.com/abdes/asap">asap</a> integrated build
+system and follows its documentation framework and development workflow.</p>
 <section id="parts-of-the-documentation">
 <h2>Parts of the documentation<a class="headerlink" href="#parts-of-the-documentation" title="Permalink to this heading">#</a></h2>
-<section id="logging">
-<h3><a class="reference external" href="https://asap-projects.github.io/asap-logging/asap_logging/html/api.html" title="(in asap/logging v1.0.0)"><span class="xref std std-doc">logging</span></a><a class="headerlink" href="#logging" title="Permalink to this heading">#</a></h3>
-<blockquote>
-<div><p><em>start here to understand the classes provided by the library and how to use
+<section id="module-logging">
+<h3><a class="reference internal" href="logging/index.html"><span class="doc">Module: logging</span></a><a class="headerlink" href="#module-logging" title="Permalink to this heading">#</a></h3>
+<p><em>start here to understand the classes provided by the library and how to use
 them to build your own state machine.</em></p>
-</div></blockquote>
 </section>
 <section id="id1">
 <h3><a class="reference external" href="https://abdes.github.io/asap/master/html/project-development/index.html">Developer Guides</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<blockquote>
-<div><p><em>head over to the `asap` project documentation for detailed guides on how to
+<p><em>head over to the `asap` project documentation for detailed guides on how to
 build and maintain the different targets in this project.</em></p>
-</div></blockquote>
 </section>
 <section id="project-tools">
 <h3><a class="reference internal" href="tools/index.html"><span class="doc">Project Tools</span></a><a class="headerlink" href="#project-tools" title="Permalink to this heading">#</a></h3>
@@ -403,11 +406,11 @@ use the project artifacts.</em></p>
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="right-next"
-       href="tools/index.html"
+       href="logging/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Project Tools</p>
+        <p class="prev-next-title">Module: logging</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -430,7 +433,7 @@ use the project artifacts.</em></p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parts-of-the-documentation">Parts of the documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logging"><span class="xref std std-doc">logging</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-logging"><span class="xref std std-doc">Module: logging</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Developer Guides</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-tools"><span class="xref std std-doc">Project Tools</span></a></li>
 </ul>
