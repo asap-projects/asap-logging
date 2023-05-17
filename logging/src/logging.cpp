@@ -7,6 +7,8 @@
 #include "logging/logging.h"
 
 #include <iomanip> // std::setw
+#include <memory>
+#include <mutex>
 #include <sstream> // std::ostringstream
 #include <utility>
 
@@ -43,8 +45,9 @@ std::recursive_mutex Registry::loggers_mutex_; // NOLINT
 // Logger
 // ---------------------------------------------------------------------------
 
-Logger::Logger(const std::string &name, const spdlog::sink_ptr &sink) {
-  logger_ = std::make_shared<spdlog::logger>(name, sink);
+Logger::Logger(const std::string &name, const spdlog::sink_ptr &sink)
+    : logger_(std::make_shared<spdlog::logger>(name, sink)),
+      logger_mutex_(std::make_unique<std::mutex>()) {
   logger_->set_pattern(DEFAULT_LOG_FORMAT);
   logger_->set_level(spdlog::level::trace);
   // Ensure that critical errors, especially ASSERT/PANIC, get flushed

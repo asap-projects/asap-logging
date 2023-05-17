@@ -145,7 +145,7 @@ private:
   std::shared_ptr<spdlog::logger> logger_;
   /// Synchronization lock used to synchronize logging over this logger from
   /// multiple threads.
-  std::unique_ptr<std::mutex> logger_mutex_{};
+  std::unique_ptr<std::mutex> logger_mutex_;
 
   /// Logger objects are created only by the Registry class.
   friend class Registry;
