@@ -54,7 +54,7 @@ asap_add_package(
   NAME
   fmtlib
   GIT_TAG
-  9.0.0
+  10.2.1
   GITHUB_REPOSITORY
   fmtlib/fmt
   OPTIONS
@@ -68,7 +68,7 @@ asap_add_package(
   NAME
   spdlog
   GIT_TAG
-  v1.10.0
+  v1.13.0
   GITHUB_REPOSITORY
   gabime/spdlog
   OPTIONS
