@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Changelog &#8212; Project: logging</title>
   
@@ -19,30 +18,31 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=439e5f72"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'changelog';</script>
     <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -58,7 +58,15 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -93,11 +101,14 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -112,9 +123,11 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="index.html">
+  
   
   
   
@@ -124,12 +137,23 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Project: logging - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Project: logging - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="logging/index.html">Module: logging</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -299,20 +323,22 @@
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -386,15 +412,15 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="changelog">
-<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this heading">#</a></h1>
+<h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading">#</a></h1>
 <p>All notable changes to this project will be documented in this file. See <a class="reference external" href="https://github.com/conventional-changelog/standard-version">standard-version</a> for commit guidelines.</p>
 <section id="id1">
-<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v4.4.8...v4.5.0">4.5.0</a> (2022-09-19)<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v4.4.8...v4.5.0">4.5.0</a> (2022-09-19)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <section id="features">
-<h3>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h3>
+<h3>Features<a class="headerlink" href="#features" title="Link to this heading">#</a></h3>
 <ol class="arabic">
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">version-info</span></code> tool</strong></p>
 <p>Add the <code class="docutils literal notranslate"><span class="pre">version-info</span></code> tool to print the project info (<a class="reference external" href="http://github.com/abdes/asap/commit/cb228e8af73fbf063371e4c597f757bf5e9a4b75">cb228e8</a>)</p>
@@ -438,14 +464,14 @@ are also added (e.g. cmake-format, clang-format, check-clang-format,…)</p>
 </ol>
 </section>
 <section id="bug-fixes">
-<h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this heading">#</a></h3>
+<h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>generated <code class="docutils literal notranslate"><span class="pre">version.h</span></code> should follow project naming (<a class="reference external" href="http://github.com/abdes/asap/commit/329bcdfc8cb9ba4782d0cbf4b3f21ad677307644">329bcdf</a>)</p></li>
 <li><p>install master project generated header files (<a class="reference external" href="http://github.com/abdes/asap/commit/3c5c1628b3c920e52200f7e14ecde2346b78a6f4">3c5c162</a>)</p></li>
 </ul>
 </section>
 <section id="documentation">
-<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h3>
+<h3>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>add example output from version-info tool (<a class="reference external" href="http://github.com/abdes/asap/commit/3a5515e74b0b0e5c06ba7e4500f7572a3bc4450f">3a5515e</a>)</p></li>
 <li><p>update after new formatting system (<a class="reference external" href="http://github.com/abdes/asap/commit/082e5134fd7d1cd03cc06218e10d5cf978b22409">082e513</a>)</p></li>
@@ -453,16 +479,16 @@ are also added (e.g. cmake-format, clang-format, check-clang-format,…)</p>
 </section>
 </section>
 <section id="id2">
-<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v4.4.7...v4.4.8">4.4.8</a> (2022-09-18)<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v4.4.7...v4.4.8">4.4.8</a> (2022-09-18)<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <section id="id3">
-<h3>Bug Fixes<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<h3>Bug Fixes<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>restore test setup deleted by mistake (<a class="reference external" href="http://github.com/abdes/asap/commit/cec7b9d92481d1480c54610892cbfd954b9e0068">cec7b9d</a>)</p></li>
 </ul>
 </section>
 </section>
 <section id="id4">
-<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v4.4.6...v4.4.7">4.4.7</a> (2022-09-18)<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v4.4.6...v4.4.7">4.4.7</a> (2022-09-18)<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Refactor cmake common modules and the master cmake script to better work with
 sub-projects built with <code class="docutils literal notranslate"><span class="pre">asap</span></code>.</p></li>
@@ -471,9 +497,9 @@ needed.</p></li>
 </ul>
 </section>
 <section id="id5">
-<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v4.4.5...v4.4.6">4.4.6</a> (2022-09-18)<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v4.4.5...v4.4.6">4.4.6</a> (2022-09-18)<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <section id="id6">
-<h3>Bug Fixes<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<h3>Bug Fixes<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>top level install not working properly (<a class="reference external" href="http://github.com/abdes/asap/commit/4ac4a31001a2ab73764e3d9fe3f279b1e7b25aee">4ac4a31</a>)</p>
 <p><code class="docutils literal notranslate"><span class="pre">CMAKE_MODULE_PATH</span></code> should be reset at the top level project to make sure that
@@ -485,9 +511,9 @@ a function in the top-level project <code class="docutils literal notranslate"><
 </section>
 </section>
 <section id="id7">
-<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v4.4.4...v4.4.5">4.4.5</a> (2022-09-18)<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v4.4.4...v4.4.5">4.4.5</a> (2022-09-18)<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <section id="id8">
-<h3>Bug Fixes<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<h3>Bug Fixes<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="http://github.com/abdes/asap/issues/20">#20</a> local install should use CMAKE_INSTALL_PREFIX to set variables (<a class="reference external" href="http://github.com/abdes/asap/commit/2e1f1d49baff64dbf47dbbda234886ad2dfdbf1c">2e1f1d4</a>)</p></li>
 <li><p><a class="reference external" href="http://github.com/abdes/asap/issues/20">#20</a> use CMAKE_INSTALL_PREFIX to set variables (<a class="reference external" href="http://github.com/abdes/asap/commit/2fffd96392114993bbb72e3f614725f867d61ab1">2fffd96</a>)</p></li>
@@ -496,18 +522,18 @@ a function in the top-level project <code class="docutils literal notranslate"><
 </section>
 </section>
 <section id="id9">
-<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v4.4.3...v4.4.4">4.4.4</a> (2022-09-18)<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v4.4.3...v4.4.4">4.4.4</a> (2022-09-18)<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <section id="id10">
-<h3>Bug Fixes<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
+<h3>Bug Fixes<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>wrong variable used for target name (<a class="reference external" href="http://github.com/abdes/asap/commit/04b5343ae541bd6d4f5ae1c1fa2eb85b93e0b5a3">04b5343</a>)</p></li>
 </ul>
 </section>
 </section>
 <section id="id11">
-<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v4.4.2...v4.4.3">4.4.3</a> (2022-09-18)<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h2>
+<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v4.4.2...v4.4.3">4.4.3</a> (2022-09-18)<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <section id="id12">
-<h3>Bug Fixes<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
+<h3>Bug Fixes<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
 <ul>
 <li><p><a class="reference external" href="http://github.com/abdes/asap/issues/19">#19</a> use generator expressions instead of CMAKE_BUILD_TYPE (<a class="reference external" href="http://github.com/abdes/asap/commit/857d2997d4ec6c879036e10234b8baf907e91089">857d299</a>)</p>
 <p>Code that checks CMAKE_BUILD_TYPE to set specific compiler flags or defines is
@@ -523,9 +549,9 @@ named <code class="docutils literal notranslate"><span class="pre">cmake-format.
 </section>
 </section>
 <section id="id13">
-<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v4.4.1...v4.4.2">4.4.2</a> (2022-09-16)<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h2>
+<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v4.4.1...v4.4.2">4.4.2</a> (2022-09-16)<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
 <section id="id14">
-<h3>Bug Fixes<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h3>
+<h3>Bug Fixes<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="http://github.com/abdes/asap/issues/13">#13</a> move “caexcludepath” to dev-windows and exclude CPM cache (<a class="reference external" href="http://github.com/abdes/asap/commit/0571714e9436bfec26d6450b5bc37f2a5f478a55">0571714</a>)</p></li>
 <li><p><a class="reference external" href="http://github.com/abdes/asap/issues/14">#14</a> upgrade CPM to 0.35.6
@@ -537,10 +563,10 @@ named <code class="docutils literal notranslate"><span class="pre">cmake-format.
 </ul>
 </section>
 <section id="id15">
-<h3><a class="reference external" href="http://github.com/abdes/asap/compare/v1.0.1...v1.0.2">1.0.2</a> (2022-08-20)<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h3>
+<h3><a class="reference external" href="http://github.com/abdes/asap/compare/v1.0.1...v1.0.2">1.0.2</a> (2022-08-20)<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
 </section>
 <section id="id16">
-<h3>Bug Fixes<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h3>
+<h3>Bug Fixes<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>use ASAP_GNUC_VERSION to detect gcc
 (<a class="reference external" href="http://github.com/abdes/asap/commit/4c8f19b56669db32bdd43c489b2e337eebabdfcf">4c8f19b</a>)</p></li>
@@ -548,12 +574,12 @@ named <code class="docutils literal notranslate"><span class="pre">cmake-format.
 </section>
 </section>
 <section id="id17">
-<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v1.0.0...v1.0.1">1.0.1</a> (2022-08-20)<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h2>
+<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v1.0.0...v1.0.1">1.0.1</a> (2022-08-20)<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>code cleanup to eliminate compiler/linter warnings and improve code quality.</p></li>
 </ul>
 <section id="id18">
-<h3>Bug Fixes<a class="headerlink" href="#id18" title="Permalink to this heading">#</a></h3>
+<h3>Bug Fixes<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="http://github.com/abdes/asap/issues/10">#10</a> no more template export header
 (<a class="reference external" href="http://github.com/abdes/asap/commit/dd8ffd5a8f36340963349c7ebcb7c1713c2f880a">dd8ffd5</a>)</p></li>
@@ -568,7 +594,7 @@ management
 </section>
 </section>
 <section id="id19">
-<h2>1.0.0 (2022-08-06)<a class="headerlink" href="#id19" title="Permalink to this heading">#</a></h2>
+<h2>1.0.0 (2022-08-06)<a class="headerlink" href="#id19" title="Link to this heading">#</a></h2>
 <p>Initial release.</p>
 </section>
 </section>
@@ -579,11 +605,10 @@ management
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="license.html"
@@ -603,10 +628,7 @@ management
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -614,6 +636,7 @@ management
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -676,6 +699,7 @@ management
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022, The Authors.
@@ -702,8 +726,8 @@ management
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
