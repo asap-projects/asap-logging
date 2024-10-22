@@ -25,7 +25,8 @@ asap_declare_module(
   VERSION_MINOR
   "0"
   VERSION_PATCH
-  "0")
+  "0"
+)
 
 # ==============================================================================
 # Build instructions
@@ -46,16 +47,25 @@ asap_add_library(
   # Headers
   "include/logging/logging.h"
   # Sources
-  "src/logging.cpp")
+  "src/logging.cpp"
+)
 
-target_link_libraries(${MODULE_TARGET_NAME} PUBLIC asap.common spdlog::spdlog)
+target_link_libraries(
+  ${MODULE_TARGET_NAME}
+  PUBLIC
+    asap.common
+    spdlog::spdlog
+)
 
 target_include_directories(
   ${MODULE_TARGET_NAME}
-  PUBLIC $<INSTALL_INTERFACE:include>
-         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-         $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
-  PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+  PUBLIC
+    $<INSTALL_INTERFACE:include>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
+  PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
 
 target_compile_features(${MODULE_TARGET_NAME} PUBLIC cxx_std_17)
 
@@ -87,17 +97,20 @@ endif()
 # API Documentation
 # ------------------------------------------------------------------------------
 
-asap_with_doxygen(
-  MODULE_NAME
-  ${MODULE_TARGET_NAME}
-  VERSION
-  ${META_MODULE_VERSION}
-  TITLE
-  "\"Logging\""
-  BRIEF
-  "\"Encapsulates, standardizes and enhances the functionality offered by spdlog.\""
-  INPUT_PATH
-  "${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/include")
+if(ASAP_BUILD_DOCS AND ASAP_WITH_DOXYGEN)
+  asap_with_doxygen(
+    MODULE_NAME
+    ${MODULE_TARGET_NAME}
+    VERSION
+    ${META_MODULE_VERSION}
+    TITLE
+    "\"Logging\""
+    BRIEF
+    "\"Encapsulates, standardizes and enhances the functionality offered by spdlog.\""
+    INPUT_PATH
+    "${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/include"
+  )
+endif()
 
 # ==============================================================================
 # Deployment instructions
@@ -110,46 +123,60 @@ if(${META_PROJECT_ID}_INSTALL)
 
   # Library
   install(
-    TARGETS ${MODULE_TARGET_NAME}
+    TARGETS
+      ${MODULE_TARGET_NAME}
     EXPORT "${TARGETS_EXPORT_NAME}"
-    COMPONENT dev
-    RUNTIME DESTINATION ${ASAP_INSTALL_BIN} COMPONENT ${runtime}
-    LIBRARY DESTINATION ${ASAP_INSTALL_SHARED} COMPONENT ${runtime}
-    ARCHIVE DESTINATION ${ASAP_INSTALL_LIB} COMPONENT ${dev})
+    COMPONENT
+    dev
+    RUNTIME
+      DESTINATION ${ASAP_INSTALL_BIN}
+      COMPONENT ${runtime}
+    LIBRARY
+      DESTINATION ${ASAP_INSTALL_SHARED}
+      COMPONENT ${runtime}
+    ARCHIVE
+      DESTINATION ${ASAP_INSTALL_LIB}
+      COMPONENT ${dev}
+  )
 
   # Header files
   install(
-    DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/${META_MODULE_NAME}
+    DIRECTORY
+      ${CMAKE_CURRENT_SOURCE_DIR}/include/${META_MODULE_NAME}
     DESTINATION ${ASAP_INSTALL_INCLUDE}
     COMPONENT ${dev}
     FILES_MATCHING
-    PATTERN "*.h")
+    PATTERN
+    "*.h"
+  )
 
   # Generated header files
-  install(
-    DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/include/${META_MODULE_NAME}
-    DESTINATION ${ASAP_INSTALL_INCLUDE}
-    COMPONENT ${dev})
+  install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/include/${META_MODULE_NAME} DESTINATION ${ASAP_INSTALL_INCLUDE} COMPONENT ${dev})
 
   # Target config
   install(
     EXPORT ${TARGETS_EXPORT_NAME}
     NAMESPACE ${META_PROJECT_NAME}::
     DESTINATION ${ASAP_INSTALL_CMAKE}/${META_MODULE_NAME}
-    COMPONENT ${dev})
+    COMPONENT ${dev}
+  )
 
   # Package configuration files
   install(
-    FILES ${CMAKE_CURRENT_BINARY_DIR}/${MODULE_TARGET_NAME}Config.cmake
-          ${CMAKE_CURRENT_BINARY_DIR}/${MODULE_TARGET_NAME}ConfigVersion.cmake
-    DESTINATION ${ASAP_INSTALL_CMAKE}/${META_MODULE_NAME})
+    FILES
+      ${CMAKE_CURRENT_BINARY_DIR}/${MODULE_TARGET_NAME}Config.cmake
+      ${CMAKE_CURRENT_BINARY_DIR}/${MODULE_TARGET_NAME}ConfigVersion.cmake
+    DESTINATION ${ASAP_INSTALL_CMAKE}/${META_MODULE_NAME}
+  )
 
   # Docs
   if(EXISTS ${SPHINX_BUILD_DIR}/${MODULE_TARGET_NAME})
     install(
-      DIRECTORY ${SPHINX_BUILD_DIR}/${MODULE_TARGET_NAME}
+      DIRECTORY
+        ${SPHINX_BUILD_DIR}/${MODULE_TARGET_NAME}
       DESTINATION ${ASAP_INSTALL_DOC}
-      COMPONENT ${MODULE_TARGET_NAME}_docs)
+      COMPONENT ${MODULE_TARGET_NAME}_docs
+    )
   endif()
 endif()
 

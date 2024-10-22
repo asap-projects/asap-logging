@@ -23,7 +23,8 @@ asap_add_test(
   gtest
   gmock
   COMMENT
-  "ASAP logging unit tests")
+  "ASAP logging unit tests"
+)
 
 target_include_directories(${MAIN_TEST_TARGET_NAME} PRIVATE "../src")
 

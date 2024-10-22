@@ -1,6 +1,6 @@
 # ===-----------------------------------------------------------------------===#
 # Distributed under the 3-Clause BSD License. See accompanying file LICENSE or
-# copy at https://opensource.org/licenses/BSD-3-Clause).
+# copy at https://opensource.org/licenses/BSD-3-Clause.
 # SPDX-License-Identifier: BSD-3-Clause
 # ===-----------------------------------------------------------------------===#
 
@@ -38,7 +38,8 @@ asap_add_package(
   OPTIONS
   "ASAP_COMMON_INSTALL ON"
   "ASAP_BUILD_TESTS OFF"
-  "ASAP_BUILD_EXAMPLES OFF")
+  "ASAP_BUILD_EXAMPLES OFF"
+)
 
 # ------------------------------------------------------------------------------
 # GSL
@@ -58,7 +59,8 @@ asap_add_package(
   GITHUB_REPOSITORY
   fmtlib/fmt
   OPTIONS
-  "FMT_INSTALL ON")
+  "FMT_INSTALL ON"
+)
 
 # ------------------------------------------------------------------------------
 # spdlog
@@ -74,5 +76,6 @@ asap_add_package(
   OPTIONS
   "SPDLOG_BUILD_SHARED ON"
   "SPDLOG_INSTALL ON"
-  "SPDLOG_FMT_EXTERNAL ON")
+  "SPDLOG_FMT_EXTERNAL ON"
+)
 message(STATUS "${ASAP_LOG_PROJECT_HIERARCHY} >> third-party modules")
