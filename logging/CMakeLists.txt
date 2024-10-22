@@ -48,7 +48,7 @@ asap_add_library(
   # Sources
   "src/logging.cpp")
 
-target_link_libraries(${MODULE_TARGET_NAME} PUBLIC asap::common spdlog::spdlog)
+target_link_libraries(${MODULE_TARGET_NAME} PUBLIC asap.common spdlog::spdlog)
 
 target_include_directories(
   ${MODULE_TARGET_NAME}
