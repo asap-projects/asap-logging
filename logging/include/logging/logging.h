@@ -29,7 +29,7 @@ ASAP_PRAGMA(GCC diagnostic ignored "-Wswitch-enum")
 #include <spdlog/spdlog.h>
 ASAP_DIAGNOSTIC_POP
 
-#include <logging/asap_logging_export.h>
+#include <asap/logging/api_export.h>
 
 /// Top level namespace.
 namespace asap::logging {
